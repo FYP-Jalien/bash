@@ -1,6 +1,10 @@
-chmod +x /home/jananga/FYP/jalien/compile.sh
-/home/jananga/FYP/jalien/compile.sh cs
+#!/bin/bash
+
+source .env
+
+chmod +x "$JALIEN/compile.sh"
+"$JALIEN/compile.sh" cs
 echo "alien-cs.jar created"
 
-cp /home/jananga/FYP/jalien/alien-cs.jar /home/jananga/FYP/SHARED_VOLUME/
-
+cp "$JALIEN/alien-cs.jar" "$SHARED_VOLUME/"
+echo "alien-cs.jar copied to $SHARED_VOLUME/"
