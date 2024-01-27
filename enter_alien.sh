@@ -1,6 +1,9 @@
 #!/bin/bash
-chmod +x /home/jananga/FYP/alma-alienv
-source /home/jananga/FYP/alma-alienv enter xjalienfs
 
-source /home/jananga/FYP/SHARED_VOLUME/env_setup.sh
+source .env
+
+chmod +x "$ALIENV"
+source "$ALIENV" setenv xjalienfs
+
+source "$SHARED_VOLUME/env_setup.sh"
 

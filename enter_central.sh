@@ -1,3 +1,6 @@
 #!/bin/bash
-sudo docker exec -it shared_volume_JCentral-dev_1 /bin/bash 
+
+source .env
+
+sudo docker exec -it "$JCENTRAL_NAME" /bin/bash 
 

@@ -1,2 +1,5 @@
 #!/bin/bash
-sudo docker exec -it shared_volume_worker1_1 /bin/bash 
+
+source .env
+
+sudo docker exec -it "$WORKER_NAME" /bin/bash 

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source .env
+
 wget_if_not_exists() {
     local local_name="$2"
     local drive_link="$1"
@@ -12,19 +14,19 @@ wget_if_not_exists() {
     fi
 }
 
-wget_if_not_exists "https://drive.google.com/uc?export=download&id=1NTFutMlpFxwB6wzHdxJP4K96p9oB1HSx" "/home/jananga/FYP/alma-alienv"
-wget_if_not_exists "https://drive.google.com/uc?export=download&id=1KUsBgUt8Qd0X0ciK6aH5k3zqq8KfLpPQ" "/home/jananga/FYP/sample.jdl"
-wget_if_not_exists "https://drive.google.com/uc?export=download&id=10KUfWm4mjIkmcgndlyHJJDRdxqn2_tg5" "/home/jananga/FYP/testscript.sh"
+wget_if_not_exists "$ALMA_ALIENV_SOURCE" "$ALIENV"
+wget_if_not_exists "$SAMPLE_JDL_SOURCE" "$SAMPLE_JDL"
+wget_if_not_exists "$TESTSCRIPT_SOURCE" "$TESTSCRIPT"
 
-chmod +x /home/jananga/FYP/my_bash/check_status.sh;
-gnome-terminal --tab --title StatusChecker -- bash -c '/home/jananga/FYP/my_bash/check_status.sh;'
-chmod +x /home/jananga/FYP/alma-alienv
-source /home/jananga/FYP/alma-alienv setenv xjalienfs
+chmod +x check_status.sh;
+gnome-terminal --tab --title StatusChecker -- bash -c 'check_status.sh;'
+chmod +x "$ALIENV"
+source "$ALIENV" setenv xjalienfs
 
-source /home/jananga/FYP/SHARED_VOLUME/env_setup.sh
+source "$SHARED_VOLUME/env_setup.sh"
 
-alien.py cp file:///home/jananga/FYP/sample.jdl alien://sample.jdl
-alien.py cp file:///home/jananga/FYP/testscript.sh alien://
+alien.py cp file://"$SAMPLE_JDL" alien://sample.jdl
+alien.py cp file://"$TESTSCRIPT" alien://
 
 echo "Files submitted succesfully"
 

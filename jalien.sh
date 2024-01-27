@@ -1,9 +1,11 @@
 #!/bin/bash
 
+source .env
+
 if [ "$1" = "shared" ]; then
-    chmod +x /home/jananga/FYP/my_bash/start_shared.sh;
-    /home/jananga/FYP/my_bash/start_shared.sh; 
-    if [ $? -ne 0 ]; then
+    chmod +x start_shared.sh;
+    start_shared.sh; 
+    if ! start_shared.sh; then
         echo "Creating the shared volume failed. Exiting..."
         exit 1;
     fi
@@ -11,15 +13,14 @@ fi
 
 # Define an array of container names
 containers=(
-    "shared_volume_JCentral-dev-CE_1"
-    "shared_volume_JCentral-dev-SE_1"
-    "shared_volume_JCentral-dev_1"
-    "shared_volume_worker1_1"
-    "shared_volume_schedd_1"
+    "$CE_NAME"
+    "$JCENTRAL_NAME"
+    "$SCHEDD_NAME"
+    "$SE_NAME"
+    "$WORKER_NAME"
 )
 
 # Stop the containers
-container_exits=false;
 for container in "${containers[@]}"; do
     # Check if the container exists
     if sudo docker ps -a --format '{{.Names}}' | grep -q "$container"; then
@@ -39,10 +40,9 @@ for container in "${containers[@]}"; do
     fi
 done
 
-chmod +x /home/jananga/FYP/my_bash/run_docker.sh;
-gnome-terminal --tab --title DockerRunner -- bash -c '/home/jananga/FYP/my_bash/run_docker.sh;';
+chmod +x run_docker.sh;
+gnome-terminal --tab --title DockerRunner -- bash -c 'run_docker.sh;';
 
-container_names=("shared_volume_JCentral-dev_1" "shared_volume_JCentral-dev-SE_1" "shared_volume_schedd_1" "shared_volume_worker1_1" "shared_volume_JCentral-dev-CE_1")
 
 is_container_running() {
     local container_name="$1"
@@ -56,7 +56,7 @@ is_container_running() {
 while true; do
     all_containers_running=true
     
-    for container_name in "${container_names[@]}"; do
+    for container_name in "${containers[@]}"; do
         if ! is_container_running "$container_name"; then
             all_containers_running=false
             break
@@ -75,14 +75,14 @@ while true; do
     fi
 done
 
-#chmod +x /home/jananga/FYP/SHARED_VOLUME/optimiser.sh
-#gnome-terminal --tab --title Optimiser -- bash -c '/home/jananga/FYP/SHARED_VOLUME/optimiser.sh;'
+#chmod +x "$SHARED_VOLUME/optimiser.sh"
+#gnome-terminal --tab --title Optimiser -- bash -c "$SHARED_VOLUME/optimiser.sh;""
 
-#chmod +x /home/jananga/FYP/my_bash/start_alien.sh
-#gnome-terminal --tab --title JobSubmissioner -- bash -c '/home/jananga/FYP/my_bash/start_alien.sh;'
+#chmod +x start_alien.sh
+#gnome-terminal --tab --title JobSubmissioner -- bash -c 'start_alien.sh;'
 
-#gnome-terminal --tab --title Worker1  -- bash -c 'sudo docker exec -it shared_volume_worker1_1 /bin/bash;'
-#gnome-terminal --tab --title JCentral  -- bash -c 'sudo docker exec -it shared_volume_JCentral-dev_1 /bin/bash;'
-#gnome-terminal --tab --title Schedd -- bash -c 'sudo docker exec -it shared_volume_schedd_1 /bin/bash;'
-#gnome-terminal --tab --title JCentral_CE  -- bash -c 'sudo docker exec -it shared_volume_JCentral-dev-CE_1 /bin/bash;'
-#gnome-terminal --tab --title JCentral_SE  -- bash -c 'sudo docker exec -it shared_volume_JCentral-dev-SE_1 /bin/bash;'
+#gnome-terminal --tab --title Worker1  -- bash -c 'sudo docker exec -it $WORKER_NAME /bin/bash;'
+#gnome-terminal --tab --title JCentral  -- bash -c 'sudo docker exec -it $JCENTRAL_NAME /bin/bash;'
+#gnome-terminal --tab --title Schedd -- bash -c 'sudo docker exec -it $SCHEDD_NAME /bin/bash;'
+#gnome-terminal --tab --title JCentral_CE  -- bash -c 'sudo docker exec -it $CE_NAME /bin/bash;'
+#gnome-terminal --tab --title JCentral_SE  -- bash -c 'sudo docker exec -it $SE_NAME /bin/bash;'
