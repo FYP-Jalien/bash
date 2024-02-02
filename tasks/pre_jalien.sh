@@ -20,7 +20,7 @@ mkdir -p "$BASE_DIR" && cd "$BASE_DIR" || exit 1
 clone_if_not_exists "$JALIEN_SETUP" "$JALIEN_SETUP_SOURCE"
 cd "$JALIEN_SETUP" || exit 1
 echo "Start building Docker images...."
-# sudo make all
+sudo make all
 echo "All Docker images built succcessfully."
 cd "$SCRIPT_DIR"
 
