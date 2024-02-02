@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source ../../config/config.sh
+
+container_names=( "$SCHEDD_NAME" "$JCENTRAL_NAME" "$SE_NAME" "$CE_NAME" "$WORKER_NAME"  )
+
 while true; do
     all_containers_running=true
     

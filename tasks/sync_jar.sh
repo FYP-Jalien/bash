@@ -1,10 +1,8 @@
 #!/bin/bash
 
-source .env
+set -e
 
-chmod +x "$JALIEN/compile.sh"
-"$JALIEN/compile.sh" cs
-echo "alien-cs.jar created"
+source "$1"
 
 cp "$JALIEN/alien-cs.jar" "$SHARED_VOLUME/"
 echo "alien-cs.jar copied to $SHARED_VOLUME/"

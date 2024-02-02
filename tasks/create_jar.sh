@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source .env
+set -e
+
+source "$1"
 
 chmod +x "$JALIEN/compile.sh"
 "$JALIEN/compile.sh" cs

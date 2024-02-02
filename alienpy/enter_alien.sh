@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .env
+source ../config/config.sh
 
 chmod +x "$ALIENV"
 source "$ALIENV" setenv xjalienfs
