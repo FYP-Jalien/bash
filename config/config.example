@@ -1,20 +1,21 @@
 #!/bin/bash
 
-export SCRIPT_DIR=/home/jananga/FYP/my_bash/bash
+# Path to directory where which stores all bash files
+export SCRIPT_DIR=
 
-export BASE_DIR=/home/jananga/FYP_Test
-export SHARED_VOLUME=/home/jananga/FYP_Test/SHARED_VOLUME
+# Path to the directory where the shared volume will be created
+export SHARED_VOLUME=/
 
-export ALIENV="$SCRIPT_DIR/files/alienv/alma-alienv"
-export SAMPLE_JDL="$SCRIPT_DIR/files/sample_job/sample.jdl"
-export TESTSCRIPT="$SCRIPT_DIR/files/sample_job/testscript.sh"
-
-export JALIEN=/home/jananga/FYP_Test/jalien
-export JALIEN_SETUP=/home/jananga/FYP_Test/jalien-setup
+# Path to the directory where the jalien repository will be cloned
+export JALIEN=
+# Path to the directory where the jalien-setup repository will be cloned
+export JALIEN_SETUP=
 
 export JALIEN_SOURCE="https://github.com/FYP-Jalien/jalien"
 export JALIEN_SETUP_SOURCE="https://github.com/FYP-Jalien/jalien-setup"
 
+# Name of the docker containers
+# Might have to change these names
 export CE_NAME=shared_volume_JCentral-dev-CE_1
 export JCENTRAL_NAME=shared_volume_JCentral-dev_1
 export SCHEDD_NAME=shared_volume_schedd_1
