@@ -1,22 +1,22 @@
-export BASE_DIR=
-export SHARED_VOLUME=
+#!/bin/bash
 
-export ALIENV=
-export SAMPLE_JDL=
-export TESTSCRIPT=
+export SCRIPT_DIR=/home/jananga/FYP/my_bash/bash
 
-export JALIEN=
-export JALIEN_SETUP=
+export BASE_DIR=/home/jananga/FYP_Test
+export SHARED_VOLUME=/home/jananga/FYP_Test/SHARED_VOLUME
 
-export JALIEN_SOURCE="https://gitlab.cern.ch/jalien/jalien"
-export JALIEN_SETUP_SOURCE="https://gitlab.cern.ch/jalien/jalien-setup"
+export ALIENV="$SCRIPT_DIR/files/alienv/alma-alienv"
+export SAMPLE_JDL="$SCRIPT_DIR/files/sample_job/sample.jdl"
+export TESTSCRIPT="$SCRIPT_DIR/files/sample_job/testscript.sh"
+
+export JALIEN=/home/jananga/FYP_Test/jalien
+export JALIEN_SETUP=/home/jananga/FYP_Test/jalien-setup
+
+export JALIEN_SOURCE="https://github.com/FYP-Jalien/jalien"
+export JALIEN_SETUP_SOURCE="https://github.com/FYP-Jalien/jalien-setup"
 
 export CE_NAME=shared_volume_JCentral-dev-CE_1
 export JCENTRAL_NAME=shared_volume_JCentral-dev_1
 export SCHEDD_NAME=shared_volume_schedd_1
 export SE_NAME=shared_volume_JCentral-dev-SE_1
 export WORKER_NAME=shared_volume_worker1_1
-
-export SAMPLE_JDL_SOURCE="https://drive.google.com/uc?export=download&id=1KUsBgUt8Qd0X0ciK6aH5k3zqq8KfLpPQ"
-export TESTSCRIPT_SOURCE="https://drive.google.com/uc?export=download&id=10KUfWm4mjIkmcgndlyHJJDRdxqn2_tg5"
-export ALMA_ALIENV_SOURCE="https://drive.google.com/uc?export=download&id=1NTFutMlpFxwB6wzHdxJP4K96p9oB1HSx"
