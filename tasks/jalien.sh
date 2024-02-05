@@ -8,7 +8,7 @@ execute() {
     local file="$1"
     chmod +x "$file"
     if [ "$2" = "terminal" ]; then
-        gnome-terminal --tab --title ContainrLogs -- bash -c "$file $SCRIPT_DIR/config/config.sh;"
+        gnome-terminal --tab --title "$3" -- bash -c "$file $SCRIPT_DIR/config/config.sh;"
     else
         "$file" "$SCRIPT_DIR/config/config.sh"
     fi
@@ -18,7 +18,7 @@ execute "$SCRIPT_DIR/containers/down.sh"
 
 execute "$SCRIPT_DIR/containers/remove.sh"
 
-execute "$SCRIPT_DIR/containers/up.sh" "terminal"
+execute "$SCRIPT_DIR/containers/up.sh" "terminal" "ContainerLogs"
 
 
 containers=(
