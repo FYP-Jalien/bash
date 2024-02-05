@@ -10,6 +10,7 @@ Before running the setup scripts, ensure that the execution permissions are gran
 
 ```bash
 chmod +x ./tasks/*.sh
+chmod +x ./containers/*.sh
 ```
 
 Follow these steps to set up the Jalien Replica Docker multi-container setup:
