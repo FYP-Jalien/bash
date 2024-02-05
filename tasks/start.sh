@@ -21,22 +21,25 @@ executeShared=false
 executeSync=true
 executeJalien=true
 executeOpt=true
+remove=false
 
 for arg in "${args[@]}"; do
     if [ "$arg" = "--pre" ]; then
         executePre=true
+        executeShared=true
+        executeSync=false
+        remove=true
     elif [ "$arg" = "--shared" ]; then
         executeShared=true
         executeSync=false
+        remove=true
+    elif [ "$arg" = "--remove" ]; then
+        remove=true
     fi
 done
 
 for arg in "${args[@]}"; do
-    if [ "$arg" = "--no-pre" ]; then
-        executePre=false
-    elif [ "$arg" = "--no-shared" ]; then
-        executeShared=false
-    elif [ "$arg" = "--no-sync" ]; then
+    if [ "$arg" = "--no-sync" ]; then
         executeSync=false
     elif [ "$arg" = "--no-jalien" ]; then
         executeJalien=false
@@ -60,7 +63,11 @@ if [ "$executeSync" = true ]; then
 fi
 
 if [ "$executeJalien" = true ]; then
-    execute "$SCRIPT_DIR/tasks/jalien.sh"
+    if [ "$remove" = true ]; then
+        execute "$SCRIPT_DIR/tasks/jalien.sh" "remove"
+    else
+        execute "$SCRIPT_DIR/tasks/jalien.sh"
+    fi
 fi
 
 if [ "$executeOpt" = true ]; then
