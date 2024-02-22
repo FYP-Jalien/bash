@@ -2,7 +2,7 @@
 
 set -e
 
-source ../config/config.sh
+source config/config.sh
 
 execute() {
     local file="$1"
