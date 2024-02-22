@@ -14,7 +14,7 @@ execute() {
     fi
 }
 
-execute "$SCRIPT_DIR/containers/down.sh"
+execute "$SCRIPT_DIR/containers/stop.sh"
 
 if [ "$2" = "--remove" ]; then
     execute "$SCRIPT_DIR/containers/remove.sh"
