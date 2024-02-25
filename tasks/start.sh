@@ -65,6 +65,8 @@ fi
 if [ "$executeJalien" = true ]; then
     if [ "$remove" = true ]; then
         execute "$SCRIPT_DIR/tasks/jalien.sh" "remove"
+    elif [ "$executeShared" = true ]; then
+        execute "$SCRIPT_DIR/tasks/jalien.sh" "down"
     else
         execute "$SCRIPT_DIR/tasks/jalien.sh"
     fi
