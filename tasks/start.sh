@@ -7,10 +7,17 @@ source config/config.sh
 execute() {
     local file="$1"
     chmod +x "$file"
-    if [ "$2" = "terminal" ]; then
-        gnome-terminal --tab --title "$3" -- bash -c "$file $SCRIPT_DIR/config/config.sh;"
+    local is_terminal=0
+    for arg in "${@:2}"; do
+        if [ "$arg" = "terminal" ]; then
+            is_terminal=1
+            break
+        fi
+    done
+    if [ $is_terminal -eq 1 ]; then
+        gnome-terminal --tab --title "$3" -- bash -c "$file $SCRIPT_DIR/config/config.sh; ${*:2}"
     else
-        "$file" "$SCRIPT_DIR/config/config.sh"
+        "$file" "$SCRIPT_DIR/config/config.sh" "${@:2}"
     fi
 }
 

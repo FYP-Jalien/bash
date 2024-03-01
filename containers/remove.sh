@@ -21,7 +21,8 @@ is_container_exists() {
 
 # Remove the containers
 for container in "${containers[@]}"; do
-    if is_container_exists "$container_name"; then
+    is_container_exists "$container"
+    if [ "$?" -eq 1 ]; then
         sudo docker rm "$container"
         echo "Container $container removed"
     fi
