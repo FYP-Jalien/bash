@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Path to directory where which stores all bash files
-export SCRIPT_DIR=
+export SCRIPT_DIR=/home/malith/Documents/FYP/bash
 
 # Path to the directory where the shared volume will be created
-export SHARED_VOLUME=/
+export SHARED_VOLUME=/home/malith/Documents/FYP/SHARED_VOLUME
 
 # Path to the directory where the jalien repository will be cloned
-export JALIEN=
+export JALIEN=/home/malith/Documents/FYP/jalien
 # Path to the directory where the jalien-setup repository will be cloned
-export JALIEN_SETUP=
+export JALIEN_SETUP=/home/malith/Documents/FYP/jalien-setup
 
 export JALIEN_SOURCE="https://github.com/FYP-Jalien/jalien"
 export JALIEN_SETUP_SOURCE="https://github.com/FYP-Jalien/jalien-setup"
