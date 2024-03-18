@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Path to the directory where the jalien and jalien-setup repository will be stored
+export BASE_DIR=/home/malith/Documents/FYP
+
 # Path to directory where which stores all bash files
 export SCRIPT_DIR=
 
