@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # Path to the directory where the jalien-setup repository will be cloned
-export BASE_DIR=/home
+export BASE_DIR=/home/runner/work/jalien-setup/jalien-setup
 
 # Path to directory where which stores all bash files
-export SCRIPT_DIR=/home
+export SCRIPT_DIR=/home/runner/work/jalien-setup/jalien-setup
 
 # Path to the directory where the shared volume will be created
-export SHARED_VOLUME=/home/SHARED_VOLUME
+export SHARED_VOLUME=/home/runner/work/jalien-setup/jalien-setup/SHARED_VOLUME
 
 # Path to the directory where the jalien repository will be cloned
-export JALIEN=/home
+export JALIEN=/home/runner/work/jalien-setup/jalien-setup
 # Path to the directory where the jalien-setup repository will be cloned
-export JALIEN_SETUP=/home
+export JALIEN_SETUP=/home/runner/work/jalien-setup/jalien-setup
 
 export JALIEN_SOURCE="https://github.com/FYP-Jalien/jalien.git"
 export JALIEN_SETUP_SOURCE="https://github.com/FYP-Jalien/jalien-setup.git"
