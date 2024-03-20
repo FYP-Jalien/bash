@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# Path to the directory where the jalien and jalien-setup repository will be stored
+export BASE_DIR=
+
 # Path to directory where which stores all bash files
 export SCRIPT_DIR=
 
 # Path to the directory where the shared volume will be created
-export SHARED_VOLUME=/
+export SHARED_VOLUME=
 
 # Path to the directory where the jalien repository will be cloned
 export JALIEN=
